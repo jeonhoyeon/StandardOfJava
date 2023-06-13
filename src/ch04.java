@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ch04 {
     public static void main(String[] args) {
-        op08();
+        op13();
     }
 
     static void op01() {
@@ -180,6 +180,66 @@ public class ch04 {
                 System.out.printf("%d x %d = %d%n", i, j, i*j);
             }
         }
+    }
+
+    static void op09() {
+        for(int i=1; i<=3; i++)
+            for(int j=1; j<=3; j++)
+                for(int k=1; k<=3; k++)
+                    System.out.println(""+i+j+k);
+    }
+
+    static void op10() {
+        for(int i=1; i<=5; i++){
+            for(int j=1; j<=5; j++) {
+                if (i == j) {
+                    System.out.printf("[%d,%d]", i, j);
+                }else{
+                    System.out.printf("%5c",' ');
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    static void op11() {
+        int i = 5;
+
+//        while(i--!=0) { //변수 i의 값만큼 블럭{}을 반복
+        while(i!=0){
+            i--;
+            System.out.println(i + " - I can do it.");
+        }
+    }
+
+    static void op12() {
+        int i = 11;
+
+        System.out.println("카운트 다운을 시작합니다.");
+        while(i--!=0){
+            System.out.println(i);
+            for(int j=0; j<2_000_000_000;j++){ //시간지연을 위한 빈 문장
+                ;
+            }
+        }
+        System.out.println("GAME OVER");
+    }
+
+    static void op13() {
+        System.out.println("숫자를 입력하세요. (예:12345)>12345");
+        int num = 0, sum = 0;
+        Scanner sc = new Scanner(System.in);
+        String tmp = sc.nextLine();
+        num = Integer.parseInt(tmp);
+
+        while(num!=0){
+            //num을 10으로 나눈 나머지를 sum에 더함
+           sum += num % 10;
+            System.out.printf("sum= %3d num = %d%n", sum, num);
+
+            num /= 10; //num = num / 10; num을 10으로 나눈 값을 다시 num에 저장
+        }
+        System.out.println("각 자리수의 합:" + sum);
     }
 }
 
